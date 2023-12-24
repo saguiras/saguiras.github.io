@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="description" content="Document" />
+    <link href="assets/css/styles.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        font-family: "Lato", sans-serif;
+    }
+
+    .sidenav {
+        width: 20%;
+        position: relative;
+        z-index: 1;
+        padding-top: 2%;
+        left: 0;
+        overflow-x: hidden;
+        transition: 0.5s;
+        background-color: #606075;
+        border-radius: 1px;
+    }
+
+    .sidenav a {
+        padding: 5% 10%;
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        font-size: 1.2vw;
+        transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    .sidenav_button {
+        font-size: 20px;
+        position: relative;
+        width: fit-content;
+        color: #fff;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+
+    .flex-container {
+        display: flex;
+        background-color: #d4d4d4;
+    }
+
+    .nav {
+        background-color: #43434b;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    #docu {
+        transition: margin-left .5s;
+        padding: 16px;
+        width: 100%;
+    }
+
+    .content {
+        padding: 16px;
+    }
+</style>
+
+<body>
+    <header>
+        <nav>
+          <ul>
+            <div class="corner">
+                <a href="">
+                    <img src={logo} alt="" />
+                </a>
+            </div>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="document.html">Document</a></li>
+            <li><a href="projet.html">Projet</a></li>
+          </ul>
+          <svg viewBox="0 0 2 3" aria-hidden="true">
+            <path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
+        </svg>
+        </nav>
+    </header>
+    <div class="content">
+    <div class="nav">
+        <span class="sidenav_button" id="Sidenav">&#9776;</s>
+    </div>
+
+    <div class="flex-container">
+        <div class="sidenav" id="mySidenav">
+            <a id="b1">physical_gate_sets</a>
+            <a id="b2">superconductivity</a>
+            <a id="b3">The Schrodinger’s cat</a>
+            <a id="b4">Topological_Qubits</a>
+        </div>
+
+        <div id="docu">
+            <embed src="src/lib/pdf/Topological_Qubits.pdf" width=100% height="800px" type="application/pdf" id="doc" />
+        </div>
+    </div>
+</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const b1 = document.getElementById('b1');
+            const b2 = document.getElementById('b2');
+            const b3 = document.getElementById('b3');
+            const b4 = document.getElementById('b4');
+            const Sidenav = document.getElementById('Sidenav');
+            const mySidenav = document.getElementById('mySidenav');
+            const main = document.getElementById('docu');
+
+            Sidenav.addEventListener("click", () => {
+
+                if (mySidenav.style.width === "" || mySidenav.style.width === "20%") {
+                    mySidenav.style.width = "0%";
+                } else {
+                    mySidenav.style.width = "20%";
+                    
+                }
+            });
+
+            b1.addEventListener("click", () => {
+                document.getElementById("doc").src = "ass/lib/pdf/physical_gate_sets.pdf";
+            });
+            b2.addEventListener("click", () => {
+                document.getElementById("doc").src = "src/lib/pdf/superconductivity.pdf";
+            });
+            b3.addEventListener("click", () => {
+                document.getElementById("doc").src = "src/lib/pdf/The_Schrodinger’s_cat.pdf";
+            });
+            b4.addEventListener("click", () => {
+                document.getElementById("doc").src = "src/lib/pdf/Topological_Qubits.pdf";
+            });
+        });
+    </script>
+</body>
+
+</html>
